@@ -39,10 +39,9 @@ img.rating {
   right: 0;
 }
 a.yelp-branding img {
-  border: none;
+  border: none !important;
   max-height: 40px;
-  box-shadow: none;
-  border: none;
+  box-shadow: none !important;
 }
 .yelp-address-wrap {
   color: #fff;
