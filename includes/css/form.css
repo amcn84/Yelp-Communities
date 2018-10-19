@@ -1,0 +1,1382 @@
+/* solid-blue */
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html{
+  height: 100%;
+}
+.yelpForm-solid-blue{
+  margin:0 auto;
+}
+.yelpForm-solid-blue>div,
+.yelpForm-solid-blue>.title{
+  margin: 8px;
+}
+.yelpForm-solid-blue .error-field .required{
+  color:#FF9999;
+}
+.yelpForm-solid-blue .error-field input,
+.yelpForm-solid-blue .error-field input[type=text],
+.yelpForm-solid-blue .error-field input[type=password],
+.yelpForm-solid-blue .error-field input[type=email],
+.yelpForm-solid-blue .error-field input[type=url],
+.yelpForm-solid-blue .error-field input[type=date],
+.yelpForm-solid-blue .error-field input[type=number],
+.yelpForm-solid-blue .error-field input[type=tel],
+.yelpForm-solid-blue .error-field textarea{
+  border-color:#D893A1;
+  background-color: #FBE6F2;
+}
+.yelpForm-solid-blue label.error{
+  display:inline-block;
+  font-size:0.9em;
+}
+.yelpForm-solid-blue .error,
+.yelpForm-solid-blue .error #recaptcha_widget_div{
+  padding: 3px 14px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  border-radius: 4px;
+
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #c09853;
+}
+.yelpForm-solid-blue .error h4 {
+  color: #b94a48;
+  margin: 0;
+}
+
+.yelpForm-solid-blue .error .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+.yelpForm-solid-blue .column{
+  float:left; 
+}
+/* width = parseInt(100/columns.length)*/
+.yelpForm-solid-blue .column1{ width:100%;}
+.yelpForm-solid-blue .column2{ width:50%; }
+.yelpForm-solid-blue .column3{ width:33%; }
+.yelpForm-solid-blue .column4{ width:25%; }
+.yelpForm-solid-blue .column5{ width:20%; }
+
+
+
+.yelpForm-solid-blue .large{
+  width: 100%;
+  *width: 94%;
+}
+.yelpForm-solid-blue .medium{
+  width: 50%;
+  *width: 47%;
+}
+.yelpForm-solid-blue .small{
+  width: 25%;
+  *width: 23%;
+}
+
+.yelpForm-solid-blue textarea.large{
+  width: 100%;
+  *width: 94%;
+  height: 20em;
+}
+.yelpForm-solid-blue textarea.medium{
+  width: 100%;
+  *width: 94%;
+  height: 10em;
+}
+.yelpForm-solid-blue textarea.small{
+  width: 100%;
+  *width: 94%;
+  height: 5.5em;
+}
+
+/* address select style */
+.yelpForm-solid-blue .element-address .country {
+  position: relative;
+}
+
+.frmd{
+  display:none;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+
+.blurBg,
+.blurBg-true{
+  background-attachment: fixed;
+  background-image:
+    -webkit-linear-gradient(5deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%), /* linear bottom */
+    -webkit-radial-gradient(40% 60%, ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),/* center white */
+    -webkit-radial-gradient(50% -10%, circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),/* top center white */
+    -webkit-radial-gradient(100% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),/* top right white */
+    -webkit-radial-gradient(0% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),/* top left white */
+    -webkit-radial-gradient(90% 60%, ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),/* center right black */
+    -webkit-radial-gradient(20% 10%, circle farthest-side, rgba(0, 0, 0, 0.25) -10%, rgba(0, 0, 0, 0) 20%);
+  
+  background-image:
+    linear-gradient(85deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%), /* linear bottom */
+    radial-gradient(40% 60%,ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),/* center white */
+    radial-gradient(50% -10%,circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),/* top center white */
+    radial-gradient(100% 0%,ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),/* top right white */
+    radial-gradient(0% 0%,ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),/* top left white */
+    radial-gradient(90% 60%,ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),/* center right black */
+    radial-gradient(20% 10%,circle farthest-side, rgba(0, 0, 0, 0.25) -10%, rgba(0, 0, 0, 0) 20%);/* top left black */
+  /*
+    radial-gradient(40% 60%,ellipse farthest-side, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%),
+    radial-gradient(50% -10%,circle closest-corner, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0) 50%),
+    radial-gradient(0% 100%,ellipse farthest-side, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 20%),
+    radial-gradient(100% 0%,ellipse farthest-side, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 20%),
+    radial-gradient(1% 2%,circle farthest-side, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 20%);
+  */
+}
+
+#yelpForm-info {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  color: #c09853;
+  font-size: 12px;
+  max-width: 100%;
+}/*
+
+
+Solid style
+
+
+*/
+@font-face {
+  font-family: yelpForm;
+  src:url('yelpForm.eot');
+  src:url('yelpForm.eot?#iefix') format('embedded-opentype'),
+  url('yelpForm.ttf') format('truetype'),
+  url('yelpForm.woff') format('woff'),
+  url('yelpForm.svg#yelpForm') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'icons';
+  src: url('icons.eot');
+  src: url('icons.eot#iefix') format('embedded-opentype'),
+       url('icons.woff') format('woff'),
+       url('icons.ttf') format('truetype'),
+       url('icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.yelpForm-solid-blue{
+  font-size: 1em;
+  line-height: 1.231;
+
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+}
+.yelpForm-solid-blue label.title{
+  font-size: 1em;
+  font-weight: 500;
+  width: auto;
+}
+.yelpForm-solid-blue input[type=button]{
+  outline: none;
+  font-size: 1em;
+}
+.yelpForm-solid-blue input[type=submit]{
+  outline: none;
+  font-size: 1.2em;
+}
+.yelpForm-solid-blue>div{
+  position: relative;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.yelpForm-solid-blue h2 {
+  margin: 0.2em 0;
+  font-size: 2em;
+  font-weight: 300;
+  color: #fff;
+}
+.yelpForm-solid-blue h3.title {
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+}
+.yelpForm-solid-blue h3.section-break-title {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.yelpForm-solid-blue label {
+  display: block;
+  margin-bottom: 3px;
+  clear: both;
+}
+
+.yelpForm-solid-blue div, .yelpForm-solid-blue span, .yelpForm-solid-blue label, .yelpForm-solid-blue input, .yelpForm-solid-blue textarea, .yelpForm-solid-blue select, .yelpForm-solid-blue button, .yelpForm-solid-blue ul, .yelpForm-solid-blue li, .yelpForm-solid-blue a{
+  font-family: inherit;
+  color: inherit;
+}
+/* Global Declaration */
+
+/*
+CORE FUNCTIONALITY 
+
+Not advised to edit stuff below this line
+-----------------------------------------------------
+*/
+
+
+/* submit + title */
+.yelpForm-solid-blue div.submit,
+.yelpForm-solid-blue div.title{
+  margin: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.yelpForm-solid-blue div.submit{
+  vertical-align: middle;
+  text-align: right;
+  border-top: 2px solid #d6dbdf;
+  background-color: #F3F5FA;
+}
+.yelpForm-solid-blue div.title {
+  border-radius: 5px 5px 0 0;
+}
+.yelpForm-solid-blue div.title h2{
+  margin-left: 27px;
+}
+
+
+/* Button & submit*/
+.yelpForm-solid-blue input[type=button],
+.yelpForm-solid-blue input[type=submit]{
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 1px;
+  color: #fff;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+  background: #fff;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+
+  border: 2px solid #bdc3c7;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  border-radius:3px;
+  box-shadow: inset 0 -0.3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.yelpForm-solid-blue input[type=button][disabled] {
+  cursor: default;
+  opacity: 0.65;
+}
+
+.yelpForm-solid-blue input[type=submit]{
+  text-align: center;
+  opacity: 1;
+  color: #ffffff;
+  border: none;
+  right: 20px;
+  margin-right: 27px;
+  padding: 11px 41px;
+}
+
+.yelpForm-solid-blue input[type=submit]:hover{
+  text-decoration: none;
+}
+.yelpForm-solid-blue input[type=submit]:active{
+  box-shadow: inset 0 -0.15em 0 rgba(0, 0, 0, 0.2);
+}
+
+/* File input */
+.yelpForm-solid-blue .element-file label{
+  position: relative;
+}
+.yelpForm-solid-blue .element-file .title{
+  position: static;
+}
+.yelpForm-solid-blue .element-file .button {
+  z-index: 1;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  float: none;
+  font-size: 1em;
+  color: #fff;
+
+  padding: 1.8% 1.2em 0 1.2em;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: inset 0 -0.3em 0 rgba(0, 0, 0, 0.2);
+
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+.yelpForm-solid-blue .element-file .button:active{
+  box-shadow: inset 0 -0.15em 0 rgba(0, 0, 0, 0.2);
+}
+.yelpForm-solid-blue .element-file .file_text{
+  overflow: hidden;
+  color: #A9A9A9;
+  background-color: #fff;
+  -webkit-transition: border-color .25s ease-in-out;
+  transition: border-color .25s ease-in-out;
+}
+
+.yelpForm-solid-blue .element-file .file_input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  width: 100%;
+}
+* html .yelpForm-solid-blue .element-file .file_input,
+*+html .yelpForm-solid-blue .element-file .file_input{
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  width: auto;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+* html .yelpForm-solid-blue .element-file .button,
+*+html .yelpForm-solid-blue .element-file .button{
+  display: none;
+}
+* html .yelpForm-solid-blue .element-file label,
+*+html .yelpForm-solid-blue .element-file label,
+* html .yelpForm-solid-blue .element-file .file_text,
+*+html .yelpForm-solid-blue .element-file .file_text{
+  border: none;
+}
+* html .yelpForm-solid-blue .element-file .title,
+*+html .yelpForm-solid-blue .element-file .title{
+  display: block;
+}
+
+
+/* Radio & checkbox */
+.yelpForm-solid-blue div.element-checkbox, .yelpForm-solid-blue div.element-radio{
+  overflow:hidden;
+  line-height: 2.2;
+}
+.yelpForm-solid-blue input[type=checkbox],
+.yelpForm-solid-blue input[type=radio]{
+  z-index:1;
+  position:absolute;
+  float: left;
+  opacity:0.01;
+  font-size: 1.3em;
+  width: 1.2em;
+  height: 1em;
+  margin: 0;
+  cursor: pointer;
+}
+
+.yelpForm-solid-blue input[type=radio]+span,
+.yelpForm-solid-blue input[type=checkbox]+span{
+  margin-right:-19px;
+  padding-top: 0;
+  z-index:0;
+  position: relative;
+  left: 0;
+  top: 0;
+  vertical-align:top;
+  font-size: 1em;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.yelpForm-solid-blue input[type=checkbox]+span:before{
+  position: relative;
+  font-family: yelpForm;
+  margin-right: 0.2em;
+  color: transparent;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align:top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* checkbox */
+.yelpForm-solid-blue input[type=checkbox]+span:before{
+  content: "\e004";
+  font-size: 0.65em;
+  padding: 0.3em;
+  font-weight: bold;
+  margin-right: 0.6em;
+  line-height: 2;
+  border-style: solid;
+  border-width: 0.3em;
+  -webkit-transition: border-color .5s ease-in-out;
+  transition: border-color .5s ease-in-out;
+  border-radius:0.3em;
+}
+
+/* radio */
+.yelpForm-solid-blue input[type=radio]+span:before {
+  position: relative;
+  font-family: yelpForm;
+  margin-right: 0.2em;
+  color: transparent;
+  font-size: 1.4em;
+  line-height: 1;
+  vertical-align:top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+.yelpForm-solid-blue input[type=radio]+span:before{
+  content: "\e001";
+}
+.yelpForm-solid-blue input[type=radio]:checked+span:before{
+  content: "\e000";
+}
+
+
+/* rating */
+.yelpForm-solid-blue .rating {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.yelpForm-solid-blue .rating-input {
+  display: none;
+}
+.yelpForm-solid-blue .rating-star:after {
+  font-family: yelpForm;
+  font-size: 2em;
+  -webkit-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
+}
+.yelpForm-solid-blue .rating:hover .rating-star:hover:after,
+.yelpForm-solid-blue .rating:hover .rating-star:hover ~ .rating-star:after,
+.yelpForm-solid-blue .rating-input:checked ~ .rating-star:after {
+  content: '\e006';
+}
+.yelpForm-solid-blue .rating-star,
+.yelpForm-solid-blue .rating:hover .rating-star {
+  position: relative;
+  cursor: default;
+  clear: none;
+  float: right;
+  display: block;
+  width: 2.4em;
+  height: 2em;
+}
+.yelpForm-solid-blue .rating-star:after,
+.yelpForm-solid-blue .rating:hover .rating-star:after {
+  content: '\e007';
+}
+
+
+
+.yelpForm-solid-blue input[type=text],
+.yelpForm-solid-blue input[type=password],
+.yelpForm-solid-blue input[type=email],
+.yelpForm-solid-blue input[type=url],
+.yelpForm-solid-blue input[type=date],
+.yelpForm-solid-blue input[type=number],
+.yelpForm-solid-blue input[type=tel],
+.yelpForm-solid-blue textarea,
+.yelpForm-solid-blue .element-file .file_text,
+.yelpForm-solid-blue select{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #bdc3c7;
+  -webkit-transition: border-color 0.5s ease-in-out;
+  transition: border-color 0.5s ease-in-out;
+  border-radius:3px;
+
+  padding: 10px 10px 9px 2.3em;
+  
+  outline:none;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+  
+  font-size: 1em;
+}
+.yelpForm-solid-blue .element-address input[type=text],
+.yelpForm-solid-blue .element-name input[type=text],
+.yelpForm-solid-blue .element-file .file_text,
+.yelpForm-solid-blue textarea{
+  width: 100%;
+  *width: 94%;
+}
+.yelpForm-solid-blue textarea{
+  height: auto;
+}
+.yelpForm-solid-blue  select{
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+.yelpForm-solid-blue .element-address input[type=text] {
+  margin-bottom: 6px;
+}
+
+
+
+/* icons */
+/*
+\e800 - icon-text
+\e801 - icon-select
+\e802 - icon-date
+\e803 - icon-num
+\e804 - icon-file
+\e805 - icon-email
+\e806 - icon-url
+\e807 - icon-pass
+\e808 - icon-phone
+\e809 - icon-street
+\e80A - icon-city
+\e80B - icon-profile
+*/
+
+.yelpForm-solid-blue .item-cont,
+.yelpForm-solid-blue .element-address .country,
+.yelpForm-solid-blue .element-name .nameFirst,
+.yelpForm-solid-blue .element-name .nameLast,
+.yelpForm-solid-blue .element-address .addr1,
+.yelpForm-solid-blue .element-address .addr2,
+.yelpForm-solid-blue .element-address .city,
+.yelpForm-solid-blue .element-address .state,
+.yelpForm-solid-blue .element-address .zip {
+  position: relative;
+}
+
+.yelpForm-solid-blue .icon-place:before {
+  position: absolute;
+  font: 1em 'icons';
+  vertical-align: top;
+  top: 15px;
+  left: 0.9em;
+  pointer-events: none;
+  color: #A2A6A8;
+  z-index: 2;
+}
+
+.yelpForm-solid-blue .element-input .item-cont .icon-place:before,
+.yelpForm-solid-blue .element-textarea .item-cont .icon-place:before {
+  content: '\e800';
+}
+.yelpForm-solid-blue .element-select .item-cont .icon-place:before,
+.yelpForm-solid-blue .element-multiple .item-cont .icon-place:before,
+.yelpForm-solid-blue .element-address .country .icon-place:before {
+  top: 12px;
+  content: '\e801';
+}
+.yelpForm-solid-blue .element-date .item-cont .icon-place:before {
+  content: '\e802';
+}
+.yelpForm-solid-blue .element-number .item-cont .icon-place:before,
+.yelpForm-solid-blue .element-address .zip .icon-place:before {
+  content: '\e803';
+}
+.yelpForm-solid-blue .element-file .item-cont .icon-place:before {
+  content: '\e804';
+}
+.yelpForm-solid-blue .element-email .item-cont .icon-place:before {
+  content: '\e805';
+}
+.yelpForm-solid-blue .element-url .item-cont .icon-place:before {
+  content: '\e806';
+}
+.yelpForm-solid-blue .element-password .item-cont .icon-place:before {
+  content: '\e807';
+}
+.yelpForm-solid-blue .element-phone .item-cont .icon-place:before {
+  content: '\e808';
+}
+.yelpForm-solid-blue .element-name .nameFirst .icon-place:before,
+.yelpForm-solid-blue .element-name .nameLast .icon-place:before {
+  content: '\e80B';
+}
+.yelpForm-solid-blue .element-address .addr1 .icon-place:before,
+.yelpForm-solid-blue .element-address .addr2 .icon-place:before {
+  top: 0;
+  content: '\e809';
+}
+.yelpForm-solid-blue .element-address .city .icon-place:before,
+.yelpForm-solid-blue .element-address .state .icon-place:before {
+  content: '\e80A';
+}
+
+
+
+/* NAME last first */
+.yelpForm-solid-blue .element-name .nameFirst{
+  width: 40%;
+  *width: 39%;
+  left: 0;
+  display: inline-block;
+  margin-right: 5%;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+}
+.yelpForm-solid-blue .element-name .nameLast{
+  width: 55%;
+  *width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+}
+/* ADDRESS */
+.yelpForm-solid-blue .element-address .city,
+.yelpForm-solid-blue .element-address .zip{
+  width: 47%;
+  *width: 44%;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  margin-right: 6%;
+}
+.yelpForm-solid-blue .element-address .state,
+.yelpForm-solid-blue .element-address .country{
+  width: 47%;
+  *width: 44%;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+}
+.yelpForm-solid-blue .element-address .country select{
+  cursor: pointer;
+}
+.yelpForm-solid-blue .element-address label,
+.yelpForm-solid-blue .element-name label{
+  font-size: 0.8em;
+}
+.yelpForm-solid-blue .element-address label.title,
+.yelpForm-solid-blue .element-name label.title{
+  font-size: 1em;
+}
+
+/* type number */
+.yelpForm-solid-blue input[type=number]::-webkit-inner-spin-button, 
+.yelpForm-solid-blue input[type=number]::-webkit-outer-spin-button{ 
+  -webkit-appearance: none;
+}
+
+/* recaptcha */
+.yelpForm-solid-blue .recaptchatable,
+.yelpForm-solid-blue .recaptchatable #recaptcha_image,
+.yelpForm-solid-blue .recaptchatable #recaptcha_challenge_field_holder input{
+  border-collapse: separate !important;
+  border: 2px solid #BDC3C7 !important;
+  border-radius: 6px;
+}
+.yelpForm-solid-blue .recaptchatable #recaptcha_image img{
+  border-color: transparent;
+  border-radius: 6px;
+}
+
+/* ERRORs */
+.yelpForm-solid-blue .error,
+.yelpForm-solid-blue .error #recaptcha_widget_div{
+  display: block;
+  background-color: #FBDBCF;
+  text-shadow: none;
+  border: none;
+  padding: 15px;
+  border-radius: 3px;
+  margin-left: 25px;
+  line-height: 1;
+}
+.yelpForm-solid-blue label.error {
+  line-height: 1;
+  display: block;
+}
+.yelpForm-solid-blue .error-label {
+  line-height: 1;
+  color: #900;
+}
+.tooltip {
+  position: relative;
+  margin-top: 6px;
+}
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  top: -8px;
+  left: 20px;
+  border-bottom-color: #FBDBCF;
+  border-width: 0 8px 8px;
+}
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  border-radius: 4px;
+}
+.alert,
+.alert h4 {
+  color: #900;
+}
+
+.alert h4 {
+  margin: 0;
+}
+
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-success h4 {
+  color: #468847;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-info h4 {
+  color: #3a87ad;
+}
+
+
+
+
+@media all and (max-width:400px){
+  .yelpForm-solid-blue .element-radio .column,
+  .yelpForm-solid-blue .element-checkbox .column,
+  .yelpForm-solid-blue .element-name .nameFirst,
+  .yelpForm-solid-blue .element-name .nameLast,
+  .yelpForm-solid-blue .element-address .city,
+  .yelpForm-solid-blue .element-address span.state,
+  .yelpForm-solid-blue .element-address .zip,
+  .yelpForm-solid-blue .element-address .country{
+    width: 100%;
+    display: block;
+    margin-right: 0;
+  }
+}/* .yelpForm-solid-blue color scheme begin */
+/*
+    first: #3498DB;
+    second: #2372A7;
+    third: #70B6E5;
+*/
+
+.yelpForm-solid-blue input[type=button]:focus,
+.yelpForm-solid-blue input[type=button]:active,
+.yelpForm-solid-blue input[type=button]:hover,
+.yelpForm-solid-blue input[type=button][disabled] {
+  border-color: #3498DB;
+}
+.yelpForm-solid-blue div.title{
+  background-color: #3498DB;
+  border-top: 1px solid #70B6E5;
+  border-bottom: 5px solid #2372A7;
+}
+
+.yelpForm-solid-blue input[type=submit]{
+  background-color: #3498DB;
+}
+
+.yelpForm-solid-blue input[type=submit]:hover{
+  background-color: #70B6E5;
+}
+.yelpForm-solid-blue input[type=submit]:active{
+  background-color: #2372A7;
+}
+
+/* File input */
+.yelpForm-solid-blue .element-file .button {
+  background-color: #3498DB;
+}
+.yelpForm-solid-blue .element-file .file_text{
+  border-color: #bdc3c7;
+}
+.yelpForm-solid-blue .element-file label:hover .file_text{
+  border-color: #70B6E5;
+}
+.yelpForm-solid-blue .element-file .button:hover {
+  background-color: #70B6E5;
+}
+.yelpForm-solid-blue .element-file .button:active {
+  background-color: #2372A7;
+}
+.yelpForm-solid-blue .element-file label:active .file_text{
+  border-color: #3498DB;
+}
+
+/* element-submit + element-text */
+.yelpForm-solid-blue > .submit,
+.yelpForm-solid-blue > .title{
+  background-color: #bcc3ca;
+}
+.yelpForm-solid-blue > .submit{
+  background-color: #edeff1;
+  border-top: 2px solid #d6dbdf;
+}
+
+/* checkbox & radio*/
+.yelpForm-solid-blue input[type=checkbox]+span:before{
+  border-color: #bdc3c7;
+}
+.yelpForm-solid-blue input[type=checkbox]:hover+span:before{
+  border-color: #70B6E5;
+}
+.yelpForm-solid-blue input[type=checkbox]:checked+span:before{
+  color: #3498DB;
+  border-color: #3498DB;
+}
+
+/* radio */
+.yelpForm-solid-blue input[type=radio]+span:before{
+  color: #bdc3c7;
+}
+.yelpForm-solid-blue input[type=radio]:hover+span:before{
+  color: #70B6E5;
+}
+.yelpForm-solid-blue input[type=radio]:checked+span:before{
+  color: #3498DB;
+}
+
+/* rating */
+.yelpForm-solid-blue .rating-star:after,
+.yelpForm-solid-blue .rating:hover .rating-star:after {
+  color: #bdc3c7;
+}
+.yelpForm-solid-blue .rating:hover .rating-star:hover:after,
+.yelpForm-solid-blue .rating:hover .rating-star:hover ~ .rating-star:after {
+  color: #70B6E5;
+}
+.yelpForm-solid-blue .rating-input:checked ~ .rating-star:after {
+  color: #3498DB;
+}
+
+
+.yelpForm-solid-blue input[type=text]:hover,
+.yelpForm-solid-blue input[type=tel]:hover,
+.yelpForm-solid-blue input[type=password]:hover,
+.yelpForm-solid-blue input[type=email]:hover,
+.yelpForm-solid-blue input[type=url]:hover,
+.yelpForm-solid-blue input[type=date]:hover,
+.yelpForm-solid-blue input[type=number]:hover,
+.yelpForm-solid-blue input[type=file]:hover,
+.yelpForm-solid-blue textarea:hover,
+.yelpForm-solid-blue select:hover {
+  border-color: #70B6E5;
+}
+.yelpForm-solid-blue input[type=text]:focus,
+.yelpForm-solid-blue input[type=tel]:focus,
+.yelpForm-solid-blue input[type=password]:focus,
+.yelpForm-solid-blue input[type=email]:focus,
+.yelpForm-solid-blue input[type=url]:focus,
+.yelpForm-solid-blue input[type=date]:focus,
+.yelpForm-solid-blue input[type=number]:focus,
+.yelpForm-solid-blue input[type=file]:focus,
+.yelpForm-solid-blue textarea:focus,
+.yelpForm-solid-blue select:focus{
+  border-color: #3498DB;
+}
+
+
+
+/* element icons */
+.yelpForm-solid-blue input:focus ~ .icon-place:before,
+.yelpForm-solid-blue textarea:focus ~ .icon-place:before,
+.yelpForm-solid-blue select:focus ~ .icon-place:before,
+.yelpForm-solid-blue .select.open ~ .icon-place:before,
+.yelpForm-solid-blue input[type=file]:focus ~ .icon-place:before,
+.yelpForm-solid-blue .button:focus ~ .icon-place:before,
+.yelpForm-solid-blue .file_text:focus ~ .icon-place:before {
+  color: #3498DB;
+}
+
+
+
+/* bootstrap select */
+.yelpForm-solid-blue .dropdown-menu li.active > a,
+.yelpForm-solid-blue .dropdown-menu li.selected > a,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted,
+.yelpForm-solid-blue .dropdown-inverse li.active > a,
+.yelpForm-solid-blue .dropdown-inverse li.selected > a {
+  background-color: #3498DB;
+}
+.yelpForm-solid-blue .btn.btn-primary:hover,
+.yelpForm-solid-blue .btn.btn-primary:focus,
+.yelpForm-solid-blue .btn-group:focus .btn.btn-primary.dropdown-toggle {
+  border-color: #70B6E5;
+}
+.yelpForm-solid-blue .btn.btn-primary:active,
+.yelpForm-solid-blue .btn-group.open .btn.btn-primary.dropdown-toggle,
+.yelpForm-solid-blue .btn.btn-primary.active,
+.yelpForm-solid-blue .dropdown-menu li.active > a:hover,
+.yelpForm-solid-blue .dropdown-menu li.selected > a:hover,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-menu li.active > a:focus,
+.yelpForm-solid-blue .dropdown-menu li.selected > a:focus,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted:focus,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted:focus {
+  border-color: #3498DB;
+}
+.yelpForm-solid-blue .dropdown-arrow {
+  border-bottom: 8px solid #3498DB;
+}
+.yelpForm-solid-blue .dropdown-menu {
+  border: 2px solid #3498DB;
+}
+
+
+
+
+/* datepicker */
+.datepicker {
+  border: 2px solid #3498DB;
+}
+.datepicker:before {
+  border-bottom: 7px solid #3498DB;
+}
+.datepicker td.active,
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:focus,
+.datepicker td.active:hover:focus,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled],
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td span.active,
+.datepicker td span.active:hover,
+.datepicker td span.active:focus,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled]{
+  color: #ffffff;
+  background-image: none;
+  background-color: #3498DB;
+}
+
+/* .yelpForm-solid-blue color scheme begin end *//* 
+
+bootstrap 
+
+*/
+.yelpForm-solid-blue .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
+  border-radius: 3px;
+}
+
+.yelpForm-solid-blue .dropdown-menu > li > a:hover,
+.yelpForm-solid-blue .dropdown-menu > li > a:focus,
+.yelpForm-solid-blue .dropdown-submenu:hover > a,
+.yelpForm-solid-blue .dropdown-submenu:focus > a {
+  text-decoration: none;
+}
+
+.yelpForm-solid-blue .btn-group {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *margin-left: .3em;
+  white-space: nowrap;
+  vertical-align: middle;
+  *zoom: 1;
+}
+
+.yelpForm-solid-blue .btn-group > .dropdown-menu{
+  font-size: 1em;
+}
+
+.yelpForm-solid-blue .btn{
+  text-align: left;
+  border: 0;
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 9px 2.3em;
+
+  outline:none;
+
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+  border-radius: 3px;
+
+  border: 2px solid #BDC3C7;
+  background-color: #fff;
+
+  font-size: 1em;
+}
+.yelpForm-solid-blue .btn:active,
+.yelpForm-solid-blue .btn-group.open .btn.dropdown-toggle,
+.yelpForm-solid-blue .btn.active {
+  box-shadow: none;
+}
+.yelpForm-solid-blue .btn.disabled,
+.yelpForm-solid-blue .btn[disabled] {
+  background-color: #bdc3c7;
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.yelpForm-solid-blue .select {
+  width: 100%;
+}
+
+.yelpForm-solid-blue .select .btn .filter-option {
+  position: absolute;
+  left: 2.4em;
+  right: 30px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.yelpForm-solid-blue .select .btn .dropdown-toggle {
+  border-radius: 6px;
+}
+.yelpForm-solid-blue .select .btn .dropdown-menu {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+.yelpForm-solid-blue .select .btn .dropdown-menu li:not(.disabled) > a:hover small {
+  color: rgba(255, 255, 255, 0.004);
+}
+
+.yelpForm-solid-blue .select .btn > .disabled,
+.yelpForm-solid-blue .select .btn .dropdown-menu li.disabled > a {
+  cursor: default;
+}
+
+.yelpForm-solid-blue .dropdown-menu {
+  overflow-x: hidden;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  width: 99%;
+  box-shadow: none;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+.yelpForm-solid-blue .dropdown-menu.typeahead {
+  display: none;
+  opacity: 1;
+  visibility: visible;
+  width: auto;
+}
+.yelpForm-solid-blue .open > .dropdown-menu {
+  margin-top: 8px;
+  opacity: 1;
+  visibility: visible;
+}
+.yelpForm-solid-blue .dropdown-menu li:first-child dt + a {
+  border-radius: 0;
+}
+.yelpForm-solid-blue .dropdown-menu li.active > a,
+.yelpForm-solid-blue .dropdown-menu li.selected > a,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted,
+.yelpForm-solid-blue .dropdown-menu li.active > a:hover,
+.yelpForm-solid-blue .dropdown-menu li.selected > a:hover,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-menu li.active > a:focus,
+.yelpForm-solid-blue .dropdown-menu li.selected > a:focus,
+.yelpForm-solid-blue .dropdown-menu li.active > a.highlighted:focus,
+.yelpForm-solid-blue .dropdown-menu li.selected > a.highlighted:focus {
+  color: #ffffff;
+}
+.yelpForm-solid-blue .dropdown-menu li > a {
+  padding: 6px 15px 6px;
+  text-decoration: none;
+  *zoom: 1;
+  -webkit-backface-visibility: hidden;
+  display: block;
+  clear: both;
+  white-space: nowrap;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.yelpForm-solid-blue .dropdown-menu li > a:before,
+.yelpForm-solid-blue .dropdown-menu li > a:after {
+  display: table;
+  content: "";
+}
+.yelpForm-solid-blue .dropdown-menu li > a:after {
+  clear: both;
+}
+.yelpForm-solid-blue .dropdown-menu li > a.highlighted {
+  background: #c9cfd4;
+  color: #ffffff;
+}
+.yelpForm-solid-blue .dropdown-menu li > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-menu li > a.highlighted:focus {
+  background: #bac1c8;
+  color: #ffffff;
+}
+.yelpForm-solid-blue .dropdown-menu li > a:before {
+  margin-top: 3px;
+}
+
+.yelpForm-solid-blue .dropdown-menu li dt {
+  margin-bottom: 3px;
+  margin-top: 12px;
+  padding: 0 15px;
+}
+.yelpForm-solid-blue .dropdown-inverse {
+  padding-top: 4px;
+}
+.yelpForm-solid-blue .dropdown-inverse li {
+  margin: 0 4px -2px;
+}
+.yelpForm-solid-blue .dropdown-inverse li:first-child > a,
+.yelpForm-solid-blue .dropdown-inverse li:last-child > a {
+  border-radius: 0;
+  padding-bottom: 7px;
+}
+.yelpForm-solid-blue .dropdown-inverse li.active > a,
+.yelpForm-solid-blue .dropdown-inverse li.selected > a {
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+}
+.yelpForm-solid-blue .dropdown-inverse li dt {
+  padding-left: 11px;
+  padding-right: 11px;
+}
+.yelpForm-solid-blue .dropdown-inverse li .divider {
+  margin-left: 11px;
+  margin-right: 11px;
+}
+.yelpForm-solid-blue .dropdown-inverse li > a.highlighted {
+  background: #526476;
+}
+.yelpForm-solid-blue .dropdown-inverse li > a.highlighted:hover,
+.yelpForm-solid-blue .dropdown-inverse li > a.highlighted:focus {
+  background: #677786;
+}
+.yelpForm-solid-blue .dropdown-inverse li .divider {
+  background-color: #526476;
+  border-bottom-color: #526476;
+}
+.yelpForm-solid-blue .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.yelpForm-solid-blue .dropdown-arrow {
+  margin-top: 0;
+  opacity: 0;
+  position: absolute;
+  left: 13px;
+  top: 100%;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  z-index: 10;
+}
+.yelpForm-solid-blue .open > .dropdown-arrow {
+  margin-top: 0;
+  opacity: 1;
+}/*!
+ * Datepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+.datepicker {
+  width: 14em;
+  position: absolute;
+  background-color: #fff;
+  color: #34495e;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  padding: 4px;
+  margin-top: 8px;
+  border-radius: 4px;
+  display: none;
+  z-index: 10;
+}
+.datepicker:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: -9px;
+  left: 6px;
+}
+.datepicker:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+.datepicker > div {
+  display: none;
+}
+.datepicker table {
+  width: 100%;
+  margin: 0;
+}
+.datepicker td,
+.datepicker th {
+  text-align: center;
+  width: 2.9em;
+  border-radius: 4px;
+}
+.datepicker td.day:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.datepicker td.day.disabled {
+  color: #eeeeee;
+}
+.datepicker td.old,
+.datepicker td.new {
+  color: #999999;
+}
+.datepicker td.active,
+.datepicker td.active:hover {
+  color: #ffffff;
+  background-image: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.datepicker td span {
+  display: block;
+  width: 1.5em;
+  height: 1.7em;
+  line-height: 1.6;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.datepicker .datepicker-months td span,
+.datepicker .datepicker-years td span {
+  width: 3.5em;
+  height: 3em;
+  line-height: 3;
+}
+.datepicker td span:hover {
+  background: #eeeeee;
+}
+.datepicker td span.active {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.datepicker td span.old {
+  color: #999999;
+}
+.datepicker thead tr:first-child th {
+  cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+form.yelpForm-solid-blue {
+	margin-bottom: 1.5%;
+}
+form.yelpForm-solid-blue select {
+	height: 2.5rem;
+}

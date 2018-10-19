@@ -1,0 +1,128 @@
+.yelp-item * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.yelp-item .more-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  opacity: 0;
+  background-color: #409ad5;
+  -webkit-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  -webkit-transform-origin: 100% 0;
+  -ms-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+
+.yelp-item .more-info i {
+  display: inline-block;
+  margin-right: 10px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #164666;
+  color: #ffffff;
+  font-size: 1.4em;
+}
+.yelp-item:hover .more-info,
+.yelp-item.hover .more-info {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.yelp-item .more-info span {
+  color: #fff;
+}
+
+.yelp-item:hover .more-info i,
+.yelp-item.hover .more-info i {
+  background-color: #2980b9;
+}
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
+
+.loading {
+  display: none;
+  margin: 0 auto;
+}
+
+.community-schools {
+	display:none;
+	float:left;
+	width: 100%;
+}
+#yelpNav {
+  width: 100%;
+  float: left;
+  margin: 0 1.5% !important;
+}
+.yelpMenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.yelpMenu a[class*='button-'] {
+    font-size: 16px;
+    flex: 1 1 20%;
+    background: #fff;
+    min-width: 70px;
+    max-width: 19%;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+}
+.yelpMenu a[class*='button-']:hover, .yelpMenu a[class*='button-']:focus {
+  color: #fff;
+  background: #325CAC;
+}
+.yelpMenu a[class*='button-'].active {
+  background: #325CAC;
+}
+.yelpMenu a[id*='frankcity-'] {
+    margin: unset;
+    padding: unset;
+    font-size: 16px;
+    flex: 1 1 25%;
+    background: #fff;
+    min-width: 100px;
+    height: 50px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.yelpMenu a[id*='frankcity-']:first-child {
+	padding-left: unset;
+}
+.yelpMenu a[id*='frankcity-']:hover, .yelpMenu a[id*='frankcity-']:focus {
+  color: #fff;
+  background: #325CAC;
+}
+.frankcity-container .nav, .cmt-tabs .nav {
+    margin: 0 1.5%;
+}
+a#frankcity-1 {
+    border-top-left-radius: unset;
+}
+a#frankcity-4 {
+    border-top-right-radius: unset;
+}
+a[class*="button-"]:not(:last-child), a[id*="frankcity-"]:not(:last-child) {
+    border-right: 1px solid #000;
+}
