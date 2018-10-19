@@ -70,9 +70,7 @@ var limit = jQuery('#limit').html();
         data : { 'action': 'my_community', 'search': term, 'location': location, 'radius': radius, 'limit':limit },
         complete : function() {  },
         success: function(data) {
-            // $("#loading-img").hide();
             jQuery('.community-info').html(data).fadeIn('fast');
-            // $("#join-class-div-3").html(data);
         }
     });
 });

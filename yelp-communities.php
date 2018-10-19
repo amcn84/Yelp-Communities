@@ -33,6 +33,7 @@ class YelpCommunities {
 		add_action( 'admin_menu', array( $this, 'yc_add_options_page' ) );
 		add_action( 'admin_init', array( $this, 'yc_admin_settings' ) );
 		add_shortcode( 'yelp', array( $this, 'yc_get_yelp' ) );
+		add_shortcode( 'yelp-form', array( $this, 'yc_form_shortcode' ) );
 	}
 
 	/**
@@ -65,7 +66,7 @@ class YelpCommunities {
 		wp_enqueue_style( 'yelp-communities', $css, array(), '1.0', 'all' );
 		wp_enqueue_style( 'yelp-communities-form', $form, array(), '1.0', 'all' );
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true );
-		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+		wp_localize_script( 'jquery', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 
 	/**
@@ -326,7 +327,7 @@ class YelpCommunities {
 		</form>
 		<div class="community-info"></div>';
 		$yc_script = plugins_url( 'includes/js/yc-form.js', __FILE__ );
-		wp_enqueue_script( 'jquery', $yc_script, array(), null, true );
+		wp_enqueue_script( 'yc-form-script', $yc_script, null, null, true );
 		return $html;
 	}
 
@@ -336,14 +337,22 @@ class YelpCommunities {
 	 * @since October 19, 2018
 	 */
 	public function yc_my_community() {
-		$term     = $_POST['search'];
-		$term     = strtolower($term);
-		$location = $_POST['location'];
-		$location = strtolower($location);
+		$term     = strtolower( $_POST['search'] );
+		$location = strtolower( $_POST['location'] );
 		$radius   = $_POST['radius'];
 		$limit    = $_POST['limit'];
+		$atts     = array(
+			'term'     => $term,
+			'location' => $location,
+			'radius'   => $radius,
+			'limit'    => $limit,
+		);
+		/*
 		$show     = do_shortcode( '[yelp term="' . $term . '" location="' . $location . '" radius="' . $radius . '" limit="' . $limit . '"]' );
 		echo $show;
+		*/
+		$data = $this->yc_get_yelp( $atts );
+		echo $data;
 	}
 }
 new YelpCommunities();

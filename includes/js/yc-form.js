@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
             type: 'POST',
             url : ajax_object.ajax_url,
             cache: false,
-            data : { 'action': 'my_community', 'search': term, 'location': location, 'radius': radius, 'limit':limit },
+            data : { 'action': 'yc_my_community', 'search': term, 'location': location, 'radius': radius, 'limit':limit },
             complete : function() {  },
             success: function(data) {
                 jQuery('.community-info').html(data).fadeIn('fast');
