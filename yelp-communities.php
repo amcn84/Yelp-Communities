@@ -76,7 +76,8 @@ class YelpCommunities {
 	public function yc_admin_page() {
 		?>
 			<div class="wrap">
-				<form action="options.php" method="post">
+				<h2>Yelp Communities Settings</h2>
+				<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?> method="post">
 					<?php
 						settings_fields( 'yelp-communities-settings' );
 						do_settings_sections( 'yelp-communities-settings' );
@@ -91,7 +92,7 @@ class YelpCommunities {
 						</tr>
 					</table>
 				</form>
-				<p>Usage: [yelp term="Entertainment" location="City name, State" radius="5" limit="6"]</p>
+				<p>Usage: <code>[yelp term="Entertainment" location="City name, State" radius="5" limit="6"]</code></p>
 			</div>
 		<?php
 	}
