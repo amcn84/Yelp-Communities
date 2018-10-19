@@ -32,7 +32,7 @@ class YelpCommunities {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', 'yc_style', PHP_INT_MAX );
 		add_action( 'admin_menu', function() {
-			add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', 'yc' );
+			add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', array ( $this, 'yc' ) );
 		});
 		add_action( 'admin_init', function() {
 			$home = home_url();
@@ -342,3 +342,4 @@ class YelpCommunities {
 		echo $show;
 	}
 }
+new YelpCommunities();
