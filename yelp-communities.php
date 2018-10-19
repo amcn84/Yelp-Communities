@@ -30,7 +30,7 @@ class YelpCommunities {
 	 * @since: October 19, 2018
 	 */
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', 'yc_style', PHP_INT_MAX );
+		add_action( 'wp_enqueue_scripts', array( $this, 'yc_style' ), PHP_INT_MAX );
 		add_action( 'admin_menu', function() {
 			add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', array ( $this, 'yc' ) );
 		});
@@ -39,7 +39,7 @@ class YelpCommunities {
 			register_setting( 'yelp-communities-settings', 'yelp_keys' );
 			register_Setting( 'yelp-communities-settings', 'yelp_keys_api' );
 		});
-		add_shortcode( 'yelp', 'yc_get_yelp' );
+		add_shortcode( 'yelp', array( $this, 'yc_get_yelp' ) );
 	}
 
 	/**
@@ -164,7 +164,7 @@ class YelpCommunities {
 			);
 			$response     = wp_remote_get( $api_endpoint, $args );
 			$html         = '';
-			$html        .= yc_results( json_decode( $response['body'], true ) );
+			$html        .= $this->yc_results( json_decode( $response['body'], true ) );
 			return $html;
 	}
 
