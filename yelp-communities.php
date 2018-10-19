@@ -11,10 +11,7 @@
  */
 
 defined( 'ABSPATH' ) || die( 'Say What?' );
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
-add_action( 'wp_ajax_nopriv_yc_my_community', 'yc_my_community' );
-add_action( 'wp_ajax_yc_my_community', 'yc_my_community' );
+
 
 /**
  * Class YelpCommunities
@@ -30,6 +27,7 @@ class YelpCommunities {
 	 * @since: October 19, 2018
 	 */
 	public function __construct() {
+<<<<<<< HEAD
 		add_action( 'wp_enqueue_scripts', array( $this, 'yc_style' ), PHP_INT_MAX );
 		add_action( 'admin_menu', function() {
 			add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', array ( $this, 'yc' ) );
@@ -40,6 +38,33 @@ class YelpCommunities {
 			register_Setting( 'yelp-communities-settings', 'yelp_keys_api' );
 		});
 		add_shortcode( 'yelp', array( $this, 'yc_get_yelp' ) );
+=======
+		add_action( 'wp_enqueue_scripts', array( $this, 'yc_style' ) );
+		add_action( 'wp_ajax_nopriv_yc_my_community', array( $this, 'yc_my_community' ) );
+		add_action( 'wp_ajax_yc_my_community', array( $this, 'yc_my_community' ) );
+		add_action( 'admin_menu', array( $this, 'yc_add_options_page' ) );
+		add_action( 'admin_init', array( $this, 'yc_admin_settings' ) );
+		add_shortcode( 'yelp', 'yc_get_yelp' );
+>>>>>>> dcb757b4af0796beca07695294b8927f45d0f60e
+	}
+
+	/**
+	 * Add options page.
+	 *
+	 * @since October 19, 2018
+	 */
+	public function yc_add_options_page() {
+		add_options_page( 'Yelp Communities Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', array( $this, 'yc_admin_page' ) );
+	}
+
+	/**
+	 * Registers settings needed for the plugin.
+	 *
+	 * @since October 19, 2018
+	 */
+	public function yc_admin_settings() {
+		register_setting( 'yelp-communities-settings', 'yelp_keys' );
+		register_setting( 'yelp-communities-settings', 'yelp_keys_api' );
 	}
 
 	/**
@@ -61,7 +86,7 @@ class YelpCommunities {
 	 *
 	 * @since October 19, 2018
 	 */
-	public function yc() {
+	public function yc_admin_page() {
 		?>
 			<div class="wrap">
 				<form action="options.php" method="post">
