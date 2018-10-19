@@ -112,78 +112,76 @@ function my_community() {
 
 
 
-function GetYelp($atts) {
-	if(isset($_GET[ 'search' ])) {
-		$term = $_GET[ 'search' ];
-		$term = strtolower($term);
-		$key = get_option( 'yelp_keys_api');
+function GetYelp( $atts ) {
+	if ( isset( $_GET['search'] ) ) {
+		$term = $_GET['search'];
+		$term = strtolower( $term );
+		$key = get_option( 'yelp_keys_api' );
 		$method = 'GET';
-		if(isset($atts[ 'location' ])) {		
-			$location = $atts[ 'location' ];
+		if ( isset( $atts['location'] ) ) {		
+			$location = $atts['location'];
 		} else {
-			$location = "Naples, FL";
+			$location = 'Naples, FL';
 		}
-		if(isset($atts[ 'radius' ])) {
-			$radius = $atts[ 'radius' ];
+		if ( isset( $atts['radius'] ) ) {
+			$radius = $atts['radius'];
 			$radius = $radius * 1609;
 		} else {
 			$radius = 8046;
 		}
-		if(isset($atts[ 'limit' ])) {
-			$limit = $atts[ 'limit' ];
+		if ( isset( $atts['limit'] ) ) {
+			$limit = $atts['limit'];
 		} else {
 			$limit = 20;
 		}
-		if($term == "schools") {
-			$html = "";
-			$html .= getSchools($term,$location,$radius,1); 
+		if ( 'schools' === $term ) {
+			$html = '';
+			$html .= getSchools( $term, $location, $radius, 1 ); 
 			return $html;
-		} else if($term == "listings") {
-			$html = "";
-			$html .= "<style>.yelp-listings { display: unset !important; }</style>";
+		} elseif ( 'listings' === $term ) {
+			$html = '';
+			$html .= '<style>.yelp-listings { display: unset !important; }</style>';
 			return $html;
-		}		
-	} else {
-		if(isset($atts[ 'term' ])) {
-		$term = $atts[ 'term' ];
-		$key = get_option( 'yelp_keys_api');
-		$method = 'GET';
-		if(isset($atts[ 'location' ])) {		
-			$location = $atts[ 'location' ];
-		} else {
-			$location = "Eugene, OR";
 		}
-		if(isset($atts[ 'radius' ])) {
-			$radius = $atts[ 'radius' ];
+	} else {
+		if ( isset( $atts['term'] ) ) {
+		$term = $atts['term'];
+		$key = get_option( 'yelp_keys_api' );
+		$method = 'GET';
+		if ( isset( $atts['location'] ) ) {
+			$location = $atts['location'];
+		} else {
+			$location = 'Eugene, OR';
+		}
+		if ( isset( $atts['radius'] ) ) {
+			$radius = $atts['radius'];
 			$radius = $radius * 1609;
 		} else {
 			$radius = 8046;
 		}
-		if(isset($atts[ 'limit' ])) {
-			$limit = $atts[ 'limit' ];
+		if ( isset( $atts['limit'] ) ) {
+			$limit = $atts['limit'];
 		} else {
 			$limit = 20;
 		}
 		}
 	}
-		$url = "https://api.yelp.com/v3/businesses/search";
-		$args = array(
-			'term' => $term,
+		$url          = 'https://api.yelp.com/v3/businesses/search';
+		$args         = array(
+			'term'     => $term,
 			'location' => $location,
-			'radius' => $radius,
-			'limit' => $limit
+			'radius'   => $radius,
+			'limit'    => $limit,
 		);
-		$api_url = add_query_arg( $args, $url );
+		$api_url      = add_query_arg( $args, $url );
 		$access_token = $key;
 		$api_endpoint = $api_url;
-
-		$args = array(
-			'user-agent' => '',
-			'headers' => array(
-				'Authorization' => 'Bearer ' . $access_token
-			)
-		);
-
+		$args         = array(
+            'user-agent' => '',
+            'headers'    => array(
+                'Authorization' => 'Bearer ' . $access_token,
+            ),
+        );
 		$response = wp_remote_get( $api_endpoint, $args );
 		$html = "";
 		$html .= YelpResults(json_decode($response[ 'body' ],true));
