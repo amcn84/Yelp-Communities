@@ -60,12 +60,10 @@ class YelpCommunities {
 	 * @since October 19, 2018
 	 */
 	public function yc_style() {
-		$css  = plugins_url( 'includes/css/style.css', __FILE__ );
-		$form = plugins_url( 'includes/css/form.css', __FILE__ );
-		wp_enqueue_style( 'yelp-communities', $css, array(), '1.0', 'all' );
-		wp_enqueue_style( 'yelp-communities-form', $form, array(), '1.0', 'all' );
-		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true );
-		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_style( 'yelp-communities', plugin_dir_url( __FILE__ ) . 'includes/css/style.css' );
+		wp_enqueue_style( 'yelp-communities-form', plugin_dir_url( __FILE__ ) . 'includes/css/form.css' );
+		wp_enqueue_script( 'jquery' );
+		wp_localize_script( 'jquery', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 
 	/**
@@ -190,6 +188,7 @@ class YelpCommunities {
 	 */
 	public function yc_results( $data ) {
 		$dir   = plugin_dir_url( __FILE__ );
+		$html  = '';
 		$html .= "
 				<style>
 				.yelp-listings {
