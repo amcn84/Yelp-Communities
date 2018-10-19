@@ -54,7 +54,7 @@ function yc_scripts_and_styles() {
  * @since October 19, 2018
  */
 function yc_add_options_page() {
-	add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', 'yelp_communities' );
+	add_options_page( 'Yelp Communities Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', 'yc_admin_page' );
 }
 
 /**
@@ -100,26 +100,31 @@ function yelp_search() {
 		</script>
 	<?php
 }
-function yelp_communities() {
-	
+/**
+ * Content for Yelp Communities page.
+ *
+ * @since October 19, 2018
+ */
+function yc_admin_page() {
 	?>
 		<div class="wrap">
-			<form action="options.php" method="post">
+			<h2>Yelp Communities Settings</h2>
+			<form action="<?php admin_url( 'options.php' ); ?> method="post">
 				<?php
-					settings_fields( 'yelp-communities-settings');
-					do_settings_sections( 'yelp-communities-settings');
+					settings_fields( 'yelp-communities-settings' );
+					do_settings_sections( 'yelp-communities-settings' );
 				?>
 				<table>
 					<tr>
 						<th>Yelp API Key</th>
-						<td><input type="text" placeholder="Your Yelp API Key" name="yelp_keys_api" value="<?php echo esc_attr( get_option( 'yelp_keys_api') ); ?>" size="50"/></td>
+						<td><input type="text" placeholder="Your Yelp API Key" name="yelp_keys_api" value="<?php echo esc_attr( get_option( 'yelp_keys_api' ) ); ?>" size="50"/></td>
 					</tr>
 					<tr>
 						<td><?php submit_button(); ?></td>
 					</tr>
 				</table>
 			</form>
-			<p>Usage: [yelp term="Entertainment" location="City name, State" radius="5" limit="6"]</p>
+			<p>Usage: <code>[yelp term="Entertainment" location="City name, State" radius="5" limit="6"]</code></p>
 		</div>
 	<?php
 }
