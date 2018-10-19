@@ -60,12 +60,10 @@ class YelpCommunities {
 	 * @since October 19, 2018
 	 */
 	public function yc_style() {
-		$css  = plugins_url( 'includes/css/style.css', __FILE__ );
-		$form = plugins_url( 'includes/css/form.css', __FILE__ );
-		wp_enqueue_style( 'yelp-communities', $css, array(), '1.0', 'all' );
-		wp_enqueue_style( 'yelp-communities-form', $form, array(), '1.0', 'all' );
-		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true );
-		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_style( 'yelp-communities', plugin_dir_url( __FILE__ ) . 'includes/css/style.css' );
+		wp_enqueue_style( 'yelp-communities-form', plugin_dir_url( __FILE__ ) . 'includes/css/form.css' );
+		wp_enqueue_script( 'jquery' );
+		wp_localize_script( 'jquery', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 
 	/**
@@ -190,6 +188,7 @@ class YelpCommunities {
 	 */
 	public function yc_results( $data ) {
 		$dir   = plugin_dir_url( __FILE__ );
+		$html  = '';
 		$html .= "
 				<style>
 				.yelp-listings {
@@ -285,54 +284,54 @@ class YelpCommunities {
 				$rating        = $location['rating'];
 				switch ( $rating ) {
 					case 0:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_0.png';
+						$stars = $dir . 'includes/images/regular_0.png';
 						break;
 					case 1:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_1.png';
+						$stars = $dir . 'includes/images/regular_1.png';
 						break;
 					case 1.5:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_1_half.png';
+						$stars = $dir . 'includes/images/regular_1_half.png';
 						break;
 					case 2:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_2.png';
+						$stars = $dir . 'includes/images/regular_2.png';
 						break;
 					case 2.5:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_2_half.png';
+						$stars = $dir . 'includes/images/regular_2_half.png';
 						break;
 					case 3:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_3.png';
+						$stars = $dir . 'includes/images/regular_3.png';
 						break;
 					case 3.5:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_3_half.png';
+						$stars = $dir . 'includes/images/regular_3_half.png';
 						break;
 					case 4:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_4.png';
+						$stars = $dir . 'includes/images/regular_4.png';
 						break;
 					case 4.5:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_4_half.png';
+						$stars = $dir . 'includes/images/regular_4_half.png';
 						break;
 					case 5:
-						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_5.png';
+						$stars = $dir . 'includes/images/regular_5.png';
 						break;
 				}
-				$html .= '<div class="yelp-item" style="background-image:url(\''.$img.'\');">';
+				$html .= '<div class="yelp-item" style="background-image:url(\'' . $img . '\');">';
 				$html .= '<div class="yelp-overlay">';
-				$html .= '<div class="more-info"><a target="_blank" href="'.$url.'"><span>More Info</span></a></div>';
+				$html .= '<div class="more-info"><a target="_blank" href="' . $url . '"><span>More Info</span></a></div>';
 				$html .= '<h3 class="yelp-title">';
-				$html .= '<a target="_blank" href="'.$url.'" class="yelp-link">'.$biz_name.'</a>';
+				$html .= '<a target="_blank" href="' . $url . '" class="yelp-link">' . $biz_name . '</a>';
 				$html .= '</h3>';
 				$html .= '<p>';
-				$html .= '<img class="rating" src="'.$stars.'" alt="'.$biz_name.' Yelp Rating" title="'.$biz_name.' Yelp Rating" />';
-				$html .= '<span class="review-count">'.$num_reviews.' reviews</span>';
-				$html .= '<a class="yelp-branding" href="'.$url.'" target="_blank"><img src="'.plugins_url( 'yelp-communities/includes/images/yelp.png',$css,array(),'1.0','all').'" alt="Powered by Yelp"></a>';
+				$html .= '<img class="rating" src="' . $stars . '" alt="' . $biz_name . ' Yelp Rating" title="' . $biz_name . ' Yelp Rating" />';
+				$html .= '<span class="review-count">' . $num_reviews . ' reviews</span>';
+				$html .= '<a class="yelp-branding" href="' . $url . '" target="_blank"><img src="' . $dir . 'includes/images/yelp.png" alt="Powered by Yelp"></a>';
 				$html .= '</p>';
 				$html .= '<div class="yelp-address-wrap">';
 				$html .= '<address>';
-				$html .= $street. '<br>'.$city.', '.$state.' '.$zip;
+				$html .= $street . '<br>' . $city . ', ' . $state . ' ' . $zip;
 				$html .= '</address>';
 				$html .= '</div>';
 				$html .= '<div class="yelp-phone">';
-				$html .= '<a href="tel:'.$phone.'">'.$phone_display.'</a>';
+				$html .= '<a href="tel:' . $phone . '">' . $phone_display . '</a>';
 				$html .= '</div>';
 				$html .= '</div>';
 				$html .= '</div>';
