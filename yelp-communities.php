@@ -191,7 +191,7 @@ class YelpCommunities {
 	 */
 	public function yc_results( $data ) {
 		$dir   = plugin_dir_url( __FILE__ );
-		$html .= "<div class='yelp-communities'>";
+		$html  = "<div class='yelp-communities'>";
 		foreach ( $data['businesses'] as $location ) {
 				$url           = $location['url'];
 				$img           = $location['image_url'];

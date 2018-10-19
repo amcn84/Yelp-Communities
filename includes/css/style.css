@@ -1,3 +1,79 @@
+.yelp-listings {
+  display: none;
+}
+.yelp-communities {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.yelp-item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  float: left;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.yelp-overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100%;
+}
+.yelp-title {
+  margin: 0;
+  padding: 0;
+}
+.yelp-link {
+  color: #fff;
+}
+img.rating {
+  border: 0px;
+}
+.review-count {
+  color: #fff;
+}
+.yelp-branding {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+a.yelp-branding img {
+  border: none;
+  max-height: 40px;
+  box-shadow: none;
+  border: none;
+}
+.yelp-address-wrap {
+  color: #fff;
+}
+.yelp-phone a {
+  color: #fff;
+}
+@media only screen and (min-width:1024px) {
+  .yelp-item {
+    width: calc(100% / 3);
+    max-height: 180px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .yelp-item {
+    width: calc(100% / 2);
+    max-height: 180px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .yelp-item {
+    width: calc(100% / 1);
+    max-height: 180px;
+  }
+}
+@media only screen and (max-width: 480) {
+  .yelp-item {
+    width: 100%;
+    max-height: 180px;
+  }
+}
 .yelp-item * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
