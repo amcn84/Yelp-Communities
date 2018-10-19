@@ -33,6 +33,7 @@ class YelpCommunities {
 		add_action( 'admin_menu', array( $this, 'yc_add_options_page' ) );
 		add_action( 'admin_init', array( $this, 'yc_admin_settings' ) );
 		add_shortcode( 'yelp', array( $this, 'yc_get_yelp' ) );
+		add_shortcode( 'yelp-form', array( $this, 'yc_form_shortcode' ) );
 	}
 
 	/**
@@ -60,9 +61,11 @@ class YelpCommunities {
 	 * @since October 19, 2018
 	 */
 	public function yc_style() {
-		wp_enqueue_style( 'yelp-communities', plugin_dir_url( __FILE__ ) . 'includes/css/style.css' );
-		wp_enqueue_style( 'yelp-communities-form', plugin_dir_url( __FILE__ ) . 'includes/css/form.css' );
-		wp_enqueue_script( 'jquery' );
+		$css  = plugins_url( 'includes/css/style.css', __FILE__ );
+		$form = plugins_url( 'includes/css/form.css', __FILE__ );
+		wp_enqueue_style( 'yelp-communities', $css, array(), '1.0', 'all' );
+		wp_enqueue_style( 'yelp-communities-form', $form, array(), '1.0', 'all' );
+		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true );
 		wp_localize_script( 'jquery', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 
@@ -109,7 +112,7 @@ class YelpCommunities {
 			$term   = strtolower( $term );
 			$key    = get_option( 'yelp_keys_api' );
 			$method = 'GET';
-			if ( isset( $atts['location'] ) ) {		
+			if ( isset( $atts['location'] ) ) {
 				$location = $atts['location'];
 			} else {
 				$location = 'Naples, FL';
@@ -127,10 +130,10 @@ class YelpCommunities {
 			}
 			if ( 'schools' === $term ) {
 				$html  = '';
-				$html .= getSchools( $term, $location, $radius, 1 ); 
+				$html .= getSchools( $term, $location, $radius, 1 );
 				return $html;
 			} elseif ( 'listings' === $term ) {
-				$html = '';
+				$html  = '';
 				$html .= '<style>.yelp-listings { display: unset !important; }</style>';
 				return $html;
 			}
@@ -188,88 +191,7 @@ class YelpCommunities {
 	 */
 	public function yc_results( $data ) {
 		$dir   = plugin_dir_url( __FILE__ );
-		$html  = '';
-		$html .= "
-				<style>
-				.yelp-listings {
-					display: none;
-				}
-				.yelp-communities {
-					display: flex;
-					flex-wrap: wrap;
-					width: 100%;
-				}
-				.yelp-item {
-					background-size: cover;
-					background-repeat: no-repeat;
-					height: auto;
-					float: left;
-					position: relative;
-					margin: 0 auto;
-					display: flex;
-					flex-direction: column;
-				}
-				.yelp-overlay {
-					background: rgba(0,0,0,0.6);
-					min-height: 100%;
-				}
-				.yelp-title {
-					margin: 0;
-					padding: 0;
-				}
-				.yelp-link {
-					color: #fff;
-				}
-				img.rating {
-					border: 0px;
-				}
-				.review-count {
-					color: #fff;
-				}
-				.yelp-branding {
-					position: absolute;
-					bottom: 0;
-					right: 0;
-				}
-				a.yelp-branding img {
-					border: none;
-					max-height: 40px;
-					box-shadow: none;
-					border: none;
-				}
-				.yelp-address-wrap {
-					color: #fff;
-				}
-				.yelp-phone a {
-					color: #fff;
-				}
-				@media only screen and (min-width:1024px) {
-					.yelp-item {
-						width: calc(100% / 3);
-						max-height: 180px;
-					}
-				}
-				@media only screen and (max-width: 1024px) {
-					.yelp-item {
-						width: calc(100% / 2);
-						max-height: 180px;
-					}
-				}
-				@media only screen and (max-width: 640px) {
-					.yelp-item {
-						width: calc(100% / 1);
-						max-height: 180px;
-					}
-				}
-				@media only screen and (max-width: 480) {
-					.yelp-item {
-						width: 100%;
-						max-height: 180px;
-					}
-				}
-			</style>
-			<div class='yelp-communities'>
-		";
+		$html .= "<div class='yelp-communities'>";
 		foreach ( $data['businesses'] as $location ) {
 				$url           = $location['url'];
 				$img           = $location['image_url'];
@@ -341,19 +263,97 @@ class YelpCommunities {
 	}
 
 	/**
+	 * Form shortcode to display by categories
+	 *
+	 * @param array $atts Contains the array of attributes to get the Yelp API results.
+	 *
+	 * @since October 19, 2018
+	 * @return string HTML markup of dynamic form.
+	 */
+	public function yc_form_shortcode( $atts ) {
+		$location  = $atts['location'];
+		$radius    = $atts['radius'];
+		$limit     = $atts['limit'];
+		$html      = '<div id="location" style="display: none;">' . $location . '</div>
+		<div id="radius" style="display: none;">' . $radius . '</div>
+		<div id="limit" style="display: none;">' . $limit . '</div>';
+		$html     .= '<form class="yelpForm-solid-blue" style="background-color:#FFFFFF;font-size:14px;font-family:"Roboto",Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px;border-radius:10px;min-height: 130px;" method="get">
+		<div class="title">
+			<h2 style="font-size: 27px;">More About This Community</h2>
+		</div>
+		<div class="element-select">
+			<label class="title"></label>
+			<div class="item-cont">
+				<div class="large">
+					<span>';
+		$html     .= wp_nonce_field( 'yc_form_nonce' );
+		$html     .= '<select name="search" class="yelp-form" >
+					<option value="hvac">Air Conditioning & Heating</option>
+					<option value="Contractors">Contractors</option>
+					<option value="Electricians">Electricians</option>
+					<option value="Home Cleaners">Home Cleaners</option>
+					<option value="Landscapers">Landscapers</option>
+					<option value="Locksmiths">Locksmiths</option>
+					<option value="Movers">Movers</option>
+					<option value="Painters">Painters</option>
+					<option value="Plumbers">Plumbers</option>
+					<option value="Dining">Dining</option>
+					<option value="Delivery">Delivery</option>
+					<option value="Nightlife">Nightlife</option>
+					<option value="Shopping">Shopping</option>
+					<option value="Active">Active</option>
+					<option value="Beauty">Beauty</option>
+					<option value="Auto">Auto</option>
+					<option value="Home Services">Home Services</option>
+					<option value="Coffee">Coffee</option>
+					<option value="Arts">Arts</option>
+					<option value="Health">Health</option>
+					<option value="Professional">Professional</option>
+					<option value="Pets">Pets</option>
+					<option value="Real Estate">Real Estate</option>
+					<option value="Hotels">Hotels</option>
+					<option value="Local Services">Local Services</option>
+					<option value="Event Services">Event Services</option>
+					<option value="Public Services">Public Services</option>
+					<option value="Financial Services">Financial Services</option>
+					<option value="Education">Education</option>
+					<option value="Religious Orgs">Religious Orgs</option>
+					<option value="Local Flavor">Local Flavor</option>
+					<option value="Mass Media">Mass Media</option>
+				</select>
+			</span>
+			</div>
+			</div>
+			</div>
+		</form>
+		<div class="community-info"></div>';
+		$yc_script = plugins_url( 'includes/js/yc-form.js', __FILE__ );
+		wp_enqueue_script( 'yc-form-script', $yc_script, null, null, true );
+		return $html;
+	}
+
+	/**
 	 * Needs nonce verification and output needs to be sanitized.
 	 *
 	 * @since October 19, 2018
 	 */
 	public function yc_my_community() {
-		$term     = $_POST['search'];
-		$term     = strtolower($term);
-		$location = $_POST['location'];
-		$location = strtolower($location);
+		$term     = strtolower( $_POST['search'] );
+		$location = strtolower( $_POST['location'] );
 		$radius   = $_POST['radius'];
 		$limit    = $_POST['limit'];
+		$atts     = array(
+			'term'     => $term,
+			'location' => $location,
+			'radius'   => $radius,
+			'limit'    => $limit,
+		);
+		/*
 		$show     = do_shortcode( '[yelp term="' . $term . '" location="' . $location . '" radius="' . $radius . '" limit="' . $limit . '"]' );
 		echo $show;
+		*/
+		$data = $this->yc_get_yelp( $atts );
+		echo $data;
 	}
 }
 new YelpCommunities();

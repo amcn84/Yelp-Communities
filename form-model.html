@@ -1,0 +1,80 @@
+<h1 style="text-align: center;padding-bottom: 20px;">In Eugene Oregon</h1>
+<div id="location" style="display: none;">Eugene, OR</div>
+<div id="radius" style="display: none;">3</div>
+<div id="limit" style="display: none;">6</div>
+<form class="yelpForm-solid-blue" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px;border-radius:10px;min-height: 130px;" method="get">
+	<div class="title">
+		<h2 style="font-size: 27px;">More About This Community</h2>
+	</div>
+	<div class="element-select">
+		<label class="title"></label>
+		<div class="item-cont">
+			<div class="large">
+				<span>
+					<select name="search" class="yelp-form" >
+						<option value="hvac">Air Conditioning & Heating</option>
+						<option value="Contractors">Contractors</option>
+						<option value="Electricians">Electricians</option>
+						<option value="Home Cleaners">Home Cleaners</option>
+						<option value="Landscapers">Landscapers</option>
+						<option value="Locksmiths">Locksmiths</option>
+						<option value="Movers">Movers</option>
+						<option value="Painters">Painters</option>
+						<option value="Plumbers">Plumbers</option>
+						<option value="Dining">Dining</option>
+						<option value="Delivery">Delivery</option>
+						<option value="Nightlife">Nightlife</option>
+						<option value="Shopping">Shopping</option>
+						<option value="Active">Active</option>
+						<option value="Beauty">Beauty</option>
+						<option value="Auto">Auto</option>
+						<option value="Home Services">Home Services</option>
+						<option value="Coffee">Coffee</option>
+						<option value="Arts">Arts</option>
+						<option value="Health">Health</option>
+						<option value="Professional">Professional</option>
+						<option value="Pets">Pets</option>
+						<option value="Real Estate">Real Estate</option>
+						<option value="Hotels">Hotels</option>
+						<option value="Local Services">Local Services</option>
+						<option value="Event Services">Event Services</option>
+						<option value="Public Services">Public Services</option>
+						<option value="Financial Services">Financial Services</option>
+						<option value="Education">Education</option>
+						<option value="Religious Orgs">Religious Orgs</option>
+						<option value="Local Flavor">Local Flavor</option>
+<option value="Mass Media">Mass Media</option>
+					</select>
+				</span>
+			</div>
+		</div>
+	</div>
+	<!--<div class="submit">
+		<input type="submit" value="Submit"/>
+	</div>-->
+</form>
+<style>#yelpNav{display:none;}</style>
+<div class="community-info"></div>
+<script>
+jQuery(document).ready(function($) {
+
+    jQuery('.yelp-form').on('change', function() {
+    var term = this.value;
+var location = jQuery('#location').html();
+var radius = jQuery('#radius').html();
+var limit = jQuery('#limit').html();
+	jQuery.ajax({
+        type: 'POST',
+        url : ajax_object.ajax_url,
+        cache: false,
+        data : { 'action': 'my_community', 'search': term, 'location': location, 'radius': radius, 'limit':limit },
+        complete : function() {  },
+        success: function(data) {
+            jQuery('.community-info').html(data).fadeIn('fast');
+        }
+    });
+});
+
+});
+</script>
+<br/><br/>
