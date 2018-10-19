@@ -32,7 +32,7 @@ class YelpCommunities {
 		add_action( 'wp_ajax_yc_my_community', array( $this, 'yc_my_community' ) );
 		add_action( 'admin_menu', array( $this, 'yc_add_options_page' ) );
 		add_action( 'admin_init', array( $this, 'yc_admin_settings' ) );
-		add_shortcode( 'yelp', 'yc_get_yelp' );
+		add_shortcode( 'yelp', array( $this, 'yc_get_yelp' ) );
 	}
 
 	/**
