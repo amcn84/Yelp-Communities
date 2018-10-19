@@ -231,9 +231,11 @@ class YelpCommunities {
 					bottom: 0;
 					right: 0;
 				}
-				.yelp-branding img {
+				a.yelp-branding img {
 					border: none;
-					height: 40px;
+					max-height: 40px;
+					box-shadow: none;
+					border: none;
 				}
 				.yelp-address-wrap {
 					color: #fff;
