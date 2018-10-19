@@ -15,6 +15,9 @@ remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
 add_action( 'wp_ajax_nopriv_my_community', 'my_community' );
 add_action( 'wp_ajax_my_community', 'my_community' );
+add_action( 'admin_init', 'yc_admin_settings' );
+add_action( 'wp_enqueue_scripts', 'yc_scripts_and_styles' );
+add_action( 'admin_menu', 'yc_add_options_page' );
 
 /**
  * Needs nonce verification and output needs to be sanitized.
@@ -34,31 +37,36 @@ function my_community() {
 }
 
 /**
- * 
+ * Enuques scripts and styles for the plugin.
+ *
+ * @since  October 19, 2018
  */
-function yelp_communities_style() {
-	$css  = plugins_url( 'includes/css/style.css', __FILE__ );
-	$form = plugins_url( 'includes/css/form.css', __FILE__ );
-	wp_enqueue_style( 'yelp-communities',$css,array(),'1.0','all');
-	wp_enqueue_style( 'yelp-communities-form',$form,array(),'1.0','all');
-	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
-	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+function yc_scripts_and_styles() {
+	wp_enqueue_style( 'yelp-communities', plugin_dir_url( __FILE__ ) . 'includes/css/style.css' );
+	wp_enqueue_style( 'yelp-communities-form', plugin_dir_url( __FILE__ ) . 'includes/css/form.css' );
+	wp_enqueue_script( 'jquery' );
+	wp_localize_script( 'jquery', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
 
-add_action( 'wp_enqueue_scripts','yelp_communities_style',PHP_INT_MAX);
-add_action( 'admin_menu', function() {
-	
-    add_options_page( 'Yelp Communities Initial Settings','Yelp Communities','manage_options','yelp-communities','yelp_communities');
-	
-});
+/**
+ * Add options page.
+ *
+ * @since October 19, 2018
+ */
+function yc_add_options_page() {
+	add_options_page( 'Yelp Communities Initial Settings', 'Yelp Communities', 'manage_options', 'yelp-communities', 'yelp_communities' );
+}
 
-add_action( 'admin_init', function() {
-	$home = home_url();
-	register_setting( 'yelp-communities-settings', 'yelp_keys');
-	register_Setting( 'yelp-communities-settings', 'yelp_keys_api');
-	
-	
-});
+/**
+ * Registers settings needed for the plugin.
+ *
+ * @since October 19, 2018
+ */
+function yc_admin_settings() {
+	register_setting( 'yelp-communities-settings', 'yelp_keys' );
+	register_setting( 'yelp-communities-settings', 'yelp_keys_api' );
+}
+
 function yelp_search() {
 	?>
 		<script>
