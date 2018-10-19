@@ -128,10 +128,10 @@ class YelpCommunities {
 			}
 			if ( 'schools' === $term ) {
 				$html  = '';
-				$html .= getSchools( $term, $location, $radius, 1 ); 
+				$html .= getSchools( $term, $location, $radius, 1 );
 				return $html;
 			} elseif ( 'listings' === $term ) {
-				$html = '';
+				$html  = '';
 				$html .= '<style>.yelp-listings { display: unset !important; }</style>';
 				return $html;
 			}
@@ -234,24 +234,24 @@ class YelpCommunities {
 						$stars = plugin_dir_url( 'yelp-communities/includes/images/' ) . 'images/regular_5.png';
 						break;
 				}
-				$html .= '<div class="yelp-item" style="background-image:url(\''.$img.'\');">';
+				$html .= '<div class="yelp-item" style="background-image:url(\'' . $img . '\');">';
 				$html .= '<div class="yelp-overlay">';
-				$html .= '<div class="more-info"><a target="_blank" href="'.$url.'"><span>More Info</span></a></div>';
+				$html .= '<div class="more-info"><a target="_blank" href="' . $url . '"><span>More Info</span></a></div>';
 				$html .= '<h3 class="yelp-title">';
-				$html .= '<a target="_blank" href="'.$url.'" class="yelp-link">'.$biz_name.'</a>';
+				$html .= '<a target="_blank" href="' . $url . '" class="yelp-link">' . $biz_name . '</a>';
 				$html .= '</h3>';
 				$html .= '<p>';
-				$html .= '<img class="rating" src="'.$stars.'" alt="'.$biz_name.' Yelp Rating" title="'.$biz_name.' Yelp Rating" />';
-				$html .= '<span class="review-count">'.$num_reviews.' reviews</span>';
-				$html .= '<a class="yelp-branding" href="'.$url.'" target="_blank"><img src="'.plugins_url( 'yelp-communities/includes/images/yelp.png',$css,array(),'1.0','all').'" alt="Powered by Yelp"></a>';
+				$html .= '<img class="rating" src="' . $stars . '" alt="' . $biz_name . ' Yelp Rating" title="' . $biz_name . ' Yelp Rating" />';
+				$html .= '<span class="review-count">' . $num_reviews . ' reviews</span>';
+				$html .= '<a class="yelp-branding" href="' . $url . '" target="_blank"><img src="' . plugins_url( 'yelp-communities/includes/images/yelp.png', $css, array(), '1.0', 'all' ) . '" alt="Powered by Yelp"></a>';
 				$html .= '</p>';
 				$html .= '<div class="yelp-address-wrap">';
 				$html .= '<address>';
-				$html .= $street. '<br>'.$city.', '.$state.' '.$zip;
+				$html .= $street . '<br>' . $city . ', ' . $state . ' ' . $zip;
 				$html .= '</address>';
 				$html .= '</div>';
 				$html .= '<div class="yelp-phone">';
-				$html .= '<a href="tel:'.$phone.'">'.$phone_display.'</a>';
+				$html .= '<a href="tel:' . $phone . '">' . $phone_display . '</a>';
 				$html .= '</div>';
 				$html .= '</div>';
 				$html .= '</div>';
@@ -269,13 +269,13 @@ class YelpCommunities {
 	 * @return string HTML markup of dynamic form.
 	 */
 	public function yc_form_shortcode( $atts ) {
-		$location = $atts['location'];
-		$radius = $atts['radius'];
-		$limit = $atts['limit'];
-		$html = '<div id="location" style="display: none;">'. $location .'</div>
+		$location  = $atts['location'];
+		$radius    = $atts['radius'];
+		$limit     = $atts['limit'];
+		$html      = '<div id="location" style="display: none;">' . $location . '</div>
 		<div id="radius" style="display: none;">' . $radius . '</div>
 		<div id="limit" style="display: none;">' . $limit . '</div>';
-		$html .= '<form class="yelpForm-solid-blue" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px;border-radius:10px;min-height: 130px;" method="get">
+		$html     .= '<form class="yelpForm-solid-blue" style="background-color:#FFFFFF;font-size:14px;font-family:"Roboto",Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px;border-radius:10px;min-height: 130px;" method="get">
 		<div class="title">
 			<h2 style="font-size: 27px;">More About This Community</h2>
 		</div>
@@ -284,8 +284,8 @@ class YelpCommunities {
 			<div class="item-cont">
 				<div class="large">
 					<span>';
-		$html .= wp_nonce_field( 'yc_form_nonce' );
-		$html .= '<select name="search" class="yelp-form" >
+		$html     .= wp_nonce_field( 'yc_form_nonce' );
+		$html     .= '<select name="search" class="yelp-form" >
 					<option value="hvac">Air Conditioning & Heating</option>
 					<option value="Contractors">Contractors</option>
 					<option value="Electricians">Electricians</option>
